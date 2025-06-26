@@ -19,7 +19,7 @@ st.set_page_config(page_icon=None, layout="wide", page_title="Multi-Org RAG")
 # Load user CSV
 @st.cache_data
 def load_user_data():
-    return pd.read_csv("/Users/adityadeshmukh/Desktop/mock_users.csv")
+    return pd.read_csv("mock_users.csv")
 
 user_df = load_user_data()
 
