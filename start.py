@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 
 # Cognito Hosted UI URL
@@ -11,10 +9,8 @@ COGNITO_LOGIN_URL = (
     "scope=email+openid+phone"
 )
 
-# Streamlit Page Configuration
 st.set_page_config(page_title="RAG System Login", layout="centered")
 
-# Page Styling and Title
 st.markdown("""
     <style>
         .title {
@@ -33,6 +29,16 @@ st.markdown("""
         .login-button {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
+        }
+        .login-link {
+            background-color: #2E8B57;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
         }
         .footer {
             margin-top: 60px;
@@ -46,18 +52,10 @@ st.markdown("""
         Welcome to the Retrieval-Augmented Generation (RAG) Application.<br>
         Please log in using your AWS Cognito account to continue.
     </div>
-""", unsafe_allow_html=True)
-
-# Login Button
-if st.button("Login with AWS Cognito"):
-    st.markdown(f"[Click here if not redirected automatically]({COGNITO_LOGIN_URL})")
-    st.markdown(f"""<meta http-equiv="refresh" content="0; url={COGNITO_LOGIN_URL}">""", unsafe_allow_html=True)
-
-# Footer
-st.markdown("""
+    <div class="login-button">
+        <a class="login-link" href='""" + COGNITO_LOGIN_URL + """' target="_self">Login with AWS Cognito</a>
+    </div>
     <div class="footer">
         This platform ensures secure access and robust data handling for enterprise knowledge retrieval.
     </div>
 """, unsafe_allow_html=True)
-
-
